@@ -30,6 +30,7 @@ class Console{
         #self::add('CreateController');
         self::$app->add(new Commands\CreateController());
         self::$app->add(new Commands\AddEmailValidator());
+        self::$app->add(new \System\Http\Commands\Server());
         #File::require_file('routes/console.php');
 
         return self::$app->run();
