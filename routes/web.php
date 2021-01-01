@@ -1,29 +1,21 @@
 <?php
 
-use Phplite\Router\Route;
+use System\Http\Route;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Hier kannst du routes für deine Web-App anlegen.
+|
+*/
 
 Route::get('/', function(){
-    echo "Herzlich Willkommen";
+    return 'Hallo <a href="/user/demo">Zu demo</a>';
 });
 
-Route::get('cloud/{user}', function(){
-    echo "ps";
+Route::get('/user/{user}', function($user = null){
+    return 'Cool';
+    return 'Hallo '.$user;
 });
-
-Route::any('/home', 'HomeConroller@index');
-
-Route::prefix('admin', function(){
-    Route::get('dashboard', "Admin@dashboard");
-    Route::get('user/{id}/edit', "Admin@user");
-    Route::get('admins', "Admin@admins");
-    
-    Route::prefix('owner', function(){
-        Route::middleware('Admin|Owner', function(){
-            Route::get('dashboard', "Admin@dashboard");
-            Route::get('user', "Admin@user");
-            Route::get('admins', "Admin@admins");
-        });
-    });
-});
-
-

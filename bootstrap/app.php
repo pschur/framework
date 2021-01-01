@@ -1,32 +1,12 @@
 <?php
 
-use Phplite\Bootstrap\App;
-
+use System\Bootstrap\App;
 
 class Application{
-    /**
-     * App constructior
-     */
-    private function __construct(){}
-
-    /**
-     * Run the Application
-     * 
-     * @return void
-     */
-    public static function run(){
+    public function start($config = null)
+    {
         /**
-         * Define root path
-         */
-        define('ROOT', realpath(__DIR__.'/..'));
-
-        /**
-         * Define separator
-         */
-        define('DS', DIRECTORY_SEPARATOR);
-
-        /**
-         * Runs the application
+         * run the App
          */
         App::run();
     }

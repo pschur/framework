@@ -1,0 +1,17 @@
+<?php
+
+namespace System\Mail;
+
+use Egulias\EmailValidator\EmailValidator as Service;
+use Egulias\EmailValidator\Validation\RFCValidation;
+
+class EmailValidator{
+    private static $validate;
+
+    public static function validate(string $email){
+        if (!self::$validate){
+            self::$validator = new Service();
+        }
+        return self::$validator->isValid($email, new RFCValidation());
+    }
+}
