@@ -1,3 +1,4 @@
 ./vendor
 ./composer.lock
 ./system/framework/quellen/*
+./storage/framework/log/*
